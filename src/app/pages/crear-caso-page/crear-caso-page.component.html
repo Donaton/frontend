@@ -1,0 +1,83 @@
+<form [formGroup]="myForm" (ngSubmit)="addCaso()">
+  <h1>NUEVO CASO</h1>
+  <div class="mb-3">
+    <label class="form-label">TIPO DE DESASTRE NATURAL</label>
+    <input type="text" class="form-control" formControlName="tipo_desastre">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">NOMBRE / TÍTULO</label>
+    <input type="text" class="form-control" formControlName="nombre">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">DESCRIPCIÓN</label>
+    <textarea type="text" class="form-control" formControlName="descripcion"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">UBICACIÓN</label>
+    <div class="row g-3 flex-column flex-md-row">
+      <div class="col-12 col-md-4">
+        <input type="text" class="form-control w-100" placeholder="Región" formControlName="region">
+      </div>
+      <div class="col-12 col-md-4">
+        <input type="text" id="provincia" class="form-control w-100" placeholder="Provincia" formControlName="provincia">
+      </div>
+      <div class="col-12 col-md-4">
+        <input type="text" class="form-control w-100" placeholder="Distrito" formControlName="distrito">
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label class="col-sm-4 col-form-label">FECHA</label>
+    <label class="col-sm-4 col-form-label">META</label>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-4">
+      <input type="date" class="form-control" formControlName="fecha">
+    </div>
+    <div class="col-sm-4">
+      <div class="input-group">
+        <span class="input-group-text">S/</span>
+        <input type="number" class="form-control" pattern="[0-9]*" formControlName="meta">
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label class="form-label">IMÁGENES</label>
+    <div class="col-sm-4">
+      <input class="form-control image" type="file">
+    </div>
+    <div class="col-sm-4">
+      <input class="form-control image" type="file">
+    </div>
+    <div class="col-sm-4">
+      <input class="form-control image" type="file">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-4">
+      <button type="button" class="btn btn-danger">CANCELAR</button>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-4">
+      <button type="submit" class="btn btn-primary">CREAR CASO</button>
+    </div>
+  </div>
+
+
+</form>
+<div *ngIf="casoCreado" class="alert alert-success" role="alert">
+  El caso se creó exitosamente en la base de datos.
+</div>
+
+
+<div *ngIf="errorCaso" class="alert alert-danger " role="alert">
+  Hubo un error al crear el caso en la base de datos. Por favor, inténtalo nuevamente.
+</div>
