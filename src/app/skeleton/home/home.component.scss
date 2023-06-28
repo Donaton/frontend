@@ -1,0 +1,53 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #0000ff;
+}
+
+.logo img {
+  width: 50px; /* Ajusta el tamaño del logo según tus necesidades */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange; /* Color de fondo anaranjado */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav ul li {
+  margin-right: 20px; /* Aumenta el margen derecho para separar las palabras del menú */
+}
+
+nav ul li:last-child {
+  margin-right: 0; /* Elimina el margen derecho del último elemento del menú */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px; /* Tamaño de fuente más grande */
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Transición suave al pasar el cursor */
+}
+
+nav ul li a:hover {
+  background-color: #ff8c00; /* Color de fondo al pasar el cursor */
+  color: #fff; /* Color de texto al pasar el cursor */
+}
+
+main {
+  /* Estilos para el contenido principal del home */
+}
+
+

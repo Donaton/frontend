@@ -1,0 +1,55 @@
+<app-home></app-home>
+<div>
+  <h2>Formulario de Donación</h2>
+  <form (ngSubmit)="submitDonacion()" method="post">
+    <div>
+      <label for="monto">Monto:</label>
+      <select id="monto" [(ngModel)]="donacion.monto" name="monto" required>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+      <input type="number" id="montoPersonalizado" [(ngModel)]="donacion.monto" name="montoPersonalizado" required>
+    </div>
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" [(ngModel)]="donante.nombre" name="nombre" required>
+    </div>
+    <div>
+      <label for="ciudad">Ciudad:</label>
+      <input type="text" id="ciudad" [(ngModel)]="donante.ciudad" name="ciudad" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="donante.email" name="email" required>
+    </div>
+    <div>
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" [(ngModel)]="donante.telefono" name="telefono" required>
+    </div>
+    <div>
+      <label for="caso">Caso:</label>
+      <select id="caso" [(ngModel)]="donacion.caso" name="caso" required>
+        <option value="" disabled selected>Selecciona un caso</option>
+        <option *ngFor="let caso of casos" [value]="caso.idCasos">{{ caso.nombres }}</option>
+      </select>
+      <div *ngIf="donacion.caso">
+        <p>Monto límite: {{ donacion.caso.montoLimite }}</p>
+      </div>
+    </div>
+    <br>
+    <button type="submit">Guardar Donación</button>
+  </form>
+
+  <div class="progress-bar">
+    <div class="progress" [ngStyle]="{ 'width': getProgressWidth() }"></div>
+  </div>
+
+  <div>
+    <p>Monto donado: {{ montoDonado }} / Monto límite: {{ donacion.caso ? donacion.caso.montoLimite : 0 }}</p>
+  </div>
+</div>
+
+
+
